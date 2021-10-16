@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Solutions</title>
+    <script>
+       //Exercise 1 show date n time.
+        function DateTime()
+        {
+            var t = new Date();
+            var day = t.getDay();
+            var month = t.getMonth() + 1;
+            var year = t.getFullYear();
+            if(day < 10)
+            {
+                day = '0' + 1;
+            }
+            if(month < 10)
+            {
+                month = '0' + 1;
+            }
+            t = month + '-' + day + '-' + year;
+            alert(t);
+        }
+        //Exercise 2 Area of a triangle
+
+       function Triangle()
+       {
+           var A = parseFloat(document.getElementById("A").value);
+           var B = parseFloat(document.getElementById("B").value);
+           var C = parseFloat(document.getElementById("C").value);
+           var s = (A + B + C) / 2;
+           var area = Math.sqrt(s * ((s - A) * (s - B) * (s - C)));
+           document.getElementById("area").innerHTML = area;
+
+       }
+
+       //Exercise 3 String Animation
+
+       function Animate(id)
+       {
+           var el = document.getElementById(id);
+           var text = document.getElementById("Animate");
+           text.innerHTML = el.value;
+           var t = text.innerHTML;
+
+           setInterval(function () {
+               t = t[t.length - 1] + t.substring(0, t.length - 1);
+               document.getElementById("Animate").innerHTML = t;
+           }, 200);
+       }
+
+       //Exercise 4 Guess Number
+
+       function Guess()
+       {
+           var number = Math.ceil(Math.random()*10);
+           var number2 = prompt("Guess a number from 1 to 10");
+           if(number == number2)
+           {
+               alert('Good Work');
+           }
+           else
+               alert('Not Matched');
+
+
+       }
+
+
+
+    </script>
+
+</head>
+<body>
+<div>
+    <h1>Exercise 1</h1>
+    <br>
+    <input type="button" name="DateTime" value="Date Time" onclick="DateTime()">
+</div>
+<br>
+<br>
+<div>
+    <h1>Exercise 2</h1>
+    <br>
+    <input type="text" name="A" id="A" value="" size="5">
+    <input type="text" name="B" id="B" value="" size="5">
+    <input type="text" name="C" id="C" value="" size="5">
+    <input type="button" name="AreaCalculator" value="Calculate" onclick="Triangle()">
+    <p id="area" name="area"></p>
+
+</div>
+<br>
+<br>
+<div>
+    <h1>Exercise 3</h1>
+    <br>
+    <input type="text" name="ChelseaFC" id="ChelseaFC">
+
+    <input type="button" name="Animate" value="Animate" onclick="Animate('ChelseaFC')">
+    <p id="Animate" name="Animate"></p>
+</div>
+<br>
+<br>
+<div>
+    <h1>Exercise 4</h1>
+    <br>
+    <input type="button" name="GuessNumber" value="Guess" onclick="Guess()">
+</div>
+</body>
+</html>
